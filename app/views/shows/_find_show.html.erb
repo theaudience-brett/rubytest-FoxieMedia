@@ -1,0 +1,12 @@
+
+<%= form_tag('/shows/find_results.json', :remote => true, :id => 'find_shows') do |f| %>
+
+  <div class="field">
+    <%= label_tag(:title, "Show Title") %><br />
+    <%= text_field_tag(:title) %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag('Find Show') %>
+  </div>
+<% end %>

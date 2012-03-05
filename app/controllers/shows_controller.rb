@@ -1,3 +1,7 @@
+require 'nokogiri'
+require 'open-uri'
+require 'delayed_job'
+
 class ShowsController < ApplicationController
   # GET /shows
   # GET /shows.json
@@ -18,6 +22,26 @@ class ShowsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @show }
+    end
+  end
+
+  # GET /shows/find
+  def find
+    @show = Show.new
+
+    respond_to do |format|
+      format.html # find.html.erb
+      format.json { render json: @show }
+    end
+  end
+
+  def find_results
+    @title = params[:title]
+    @shows = Show.find_show(@title)
+    
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @shows, :layout => false }
     end
   end
 
@@ -44,7 +68,7 @@ class ShowsController < ApplicationController
 
     respond_to do |format|
       if @show.save
-        format.html { redirect_to @show, notice: 'Show was successfully created.' }
+        format.html { redirect_to populate_url(:id => @show.id), notice: 'Show added, now importing data.' }
         format.json { render json: @show, status: :created, location: @show }
       else
         format.html { render action: "new" }
@@ -79,5 +103,11 @@ class ShowsController < ApplicationController
       format.html { redirect_to shows_url }
       format.json { head :no_content }
     end
+  end
+
+  # GET /show/1/populate
+  def populate
+    @show = Show.find(params[:id])
+    @show.delay.import_data
   end
 end

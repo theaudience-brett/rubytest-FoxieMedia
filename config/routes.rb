@@ -1,5 +1,17 @@
 Foxiemedia::Application.routes.draw do
+  resources :episodes
+
+  get "shows/populate"
+
+  get "shows/find"
+  post "shows/find_results"
+
+  match "shows/find/:name" => 'shows#find_results'
+
+  match "shows/:id/populate" => 'shows#populate', :as => :populate
   resources :shows
+
+  root :to => 'shows#index', :as => 'shows'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

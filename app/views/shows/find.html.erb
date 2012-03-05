@@ -1,0 +1,17 @@
+<h1>Add New Show</h1>
+
+<%= render 'find_show' %>
+
+<div id="find_results" style="display: none">
+	<h2>Possible Matches</h2>
+	<ul id="show_list">
+	</ul>
+	<%= form_tag('/shows', :id => 'add_show') do %>
+		<%= hidden_field_tag('show[title]') %>
+		<%= hidden_field_tag('show[description]') %>
+		<%= hidden_field_tag('show[location]') %>
+		<%= hidden_field_tag('show[tvdb_id]') %>
+	<% end %>
+</div>
+
+<%= link_to 'Back', shows_path %>

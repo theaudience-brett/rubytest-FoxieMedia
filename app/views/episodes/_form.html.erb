@@ -1,0 +1,49 @@
+<%= form_for(@episode) do |f| %>
+  <% if @episode.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@episode.errors.count, "error") %> prohibited this episode from being saved:</h2>
+
+      <ul>
+      <% @episode.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :show_id %><br />
+    <%= f.number_field :show_id %>
+  </div>
+  <div class="field">
+    <%= f.label :tvdb_id %><br />
+    <%= f.number_field :tvdb_id %>
+  </div>
+  <div class="field">
+    <%= f.label :season_no %><br />
+    <%= f.number_field :season_no %>
+  </div>
+  <div class="field">
+    <%= f.label :episode_no %><br />
+    <%= f.number_field :episode_no %>
+  </div>
+  <div class="field">
+    <%= f.label :episode_name %><br />
+    <%= f.text_field :episode_name %>
+  </div>
+  <div class="field">
+    <%= f.label :first_aired %><br />
+    <%= f.text_field :first_aired %>
+  </div>
+  <div class="field">
+    <%= f.label :overview %><br />
+    <%= f.text_area :overview %>
+  </div>
+  <div class="field">
+    <%= f.label :last_update %><br />
+    <%= f.number_field :last_update %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

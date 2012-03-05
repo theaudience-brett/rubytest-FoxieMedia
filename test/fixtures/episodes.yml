@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tvdb_id: 1
+  season_no: 1
+  episode_no: 1
+  episode_name: MyString
+  first_aired: MyString
+  overview: MyText
+  last_update: 1
+
+two:
+  tvdb_id: 1
+  season_no: 1
+  episode_no: 1
+  episode_name: MyString
+  first_aired: MyString
+  overview: MyText
+  last_update: 1

@@ -55,5 +55,7 @@ module Foxiemedia
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    APIKEY_TVDB = '89C970B29C8BAA1D'
   end
 end

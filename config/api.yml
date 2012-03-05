@@ -1,0 +1,14 @@
+development: &base
+  tvdb: 
+    url: http://www.thetvdb.com/api/
+    key: 89C970B29C8BAA1D
+
+  tmdb: 
+    url: http://api.themoviedb.org/3
+    key: tba
+
+test:
+  <<: *base
+
+production:
+  <<: *base
