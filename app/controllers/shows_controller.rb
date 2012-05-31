@@ -131,6 +131,7 @@ class ShowsController < ApplicationController
   # GET /show/1/populate
   def populate
     @show = Show.find(params[:id])
+    puts @show
     @show.import_data( current_user )
     @show.shows_users.create(:show_id => @show.id,
                              :user_id => current_user.id,
