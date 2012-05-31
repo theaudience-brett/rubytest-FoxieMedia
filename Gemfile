@@ -10,6 +10,15 @@ gem 'nokogiri'
 gem 'delayed_job_active_record'
 gem 'daemons'
 gem 'rubyzip'
+gem 'mysql2'
+gem 'formtastic'
+gem 'capybara'
+gem 'gravatar_image_tag'
+gem 'rails-settings-cached'
+
+group :development do
+  gem 'rack-webconsole'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.

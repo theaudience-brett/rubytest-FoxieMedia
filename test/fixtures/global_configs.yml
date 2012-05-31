@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  confkey: MyString
+  confval: MyString
+  created_at: 2012-04-08 18:57:12
+  updated_at: 2012-04-08 18:57:12
+  section: general
+
+two:
+  confkey: MyString
+  confval: MyString
+  created_at: 2012-04-08 18:57:12
+  updated_at: 2012-04-08 18:57:12
+  section: general

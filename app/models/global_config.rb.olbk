@@ -1,0 +1,23 @@
+class GlobalConfig < ActiveRecord::Base
+	attr_writer :MEDIA_BASE
+	attr_writer :XBMC_ART
+	def self.setinitialvals
+		initialvals = {
+			:general => {
+				:MEDIA_BASE => Dir.pwd,
+				:WATCH_DIR => nil,
+				:XBMC_ART => 0
+			}
+		}
+
+		initialvals.each { |section, confs|
+			confs.each { |key, val| 
+				unless exists?(:section => section, :confkey => key)
+					create({ :confkey => key, :confval => val, :section => section })
+				end
+			}
+		}
+
+		initialvals
+	end
+end

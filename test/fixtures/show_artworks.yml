@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  show_id: 1
+  tvdb_id: 1
+  path: MyString
+  basetype: 
+  subtype: MyString
+  language: MyString
+  rating: 9.99
+  thumbnail: MyString
+
+two:
+  show_id: 1
+  tvdb_id: 1
+  path: MyString
+  basetype: 
+  subtype: MyString
+  language: MyString
+  rating: 9.99
+  thumbnail: MyString

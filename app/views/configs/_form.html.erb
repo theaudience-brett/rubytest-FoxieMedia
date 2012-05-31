@@ -1,0 +1,19 @@
+<%= form_tag('/configs/update') do %>
+
+  <div class="field">
+    <%= hidden_field_tag 'id', @global_config[:id] %>
+  </div>
+
+  <% @global_config[:fields].each { |key, value| %>
+
+  <div class="field">
+    <%= label_tag key %><br />
+    <%= text_field_tag key, value %>
+  </div>
+
+  <% } %> 
+
+  <div class="actions">
+    <%= submit_tag 'Save' %>
+  </div>
+<% end %>

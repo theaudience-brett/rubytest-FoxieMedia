@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Confkey:</b>
+  <%= @global_config.confkey %>
+</p>
+
+<p>
+  <b>Confval:</b>
+  <%= @global_config.confval %>
+</p>
+
+
+<%= link_to 'Edit', edit_global_config_path(@global_config) %> |
+<%= link_to 'Back', global_configs_path %>

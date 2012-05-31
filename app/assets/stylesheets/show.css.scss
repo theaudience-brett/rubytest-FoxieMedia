@@ -1,3 +1,50 @@
 // Place all the styles related to the Show controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+div#coverimg {
+	float: left;
+	margin: 5px 10px 0;
+}
+
+h2#showtitle {
+	padding: 5px 15px;
+	color: #B1E100;
+}
+
+p.showinfo {
+	padding: 5px 15px;
+}
+
+table#episodetable tr {
+	color: #ccc;
+}
+
+table#episodetable tr td:last-child {
+	border-right: 1px solid #fff;
+}
+
+td.seasoncell {
+	border-left: none;
+	border-right: none !important;
+	text-align: center;
+}
+
+div.optionstab {
+	float: right;
+	background-color: #888;
+	margin-right: -10px;
+	margin-top: -10px;
+	height: 35px;
+	width: 150px;
+	border-bottom-left-radius: 12px;
+	padding: 5px 10px;
+	box-shadow: -5px 5px 10px #000;
+}
+
+div.optionstab a {
+	font-weight: bold;
+	font-size: 14pt;
+	margin-left: 20px;
+	line-height: 40px;
+	color: white;
+}

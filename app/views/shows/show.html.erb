@@ -1,20 +1,81 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+<div class="box">
+	<a name="notice"></a>				
+	<h1><a href="#notice">Notice</a></h1>
+	<p id="notice"><%= notice %></p>
+</div>
+<% end %>
 
-<p>
-  <b>Title:</b>
-  <%= @show.title %>
-</p>
+<div class="box">
+	<div class="optionstab">
+		<%= link_to 'Configure', showconfig_path(@show) %>
+	</div>
+	
+	<a name="ShowInfo"></a>				
+	<h1><a href="#ShowInfo">Show <span class="white">Info</span></a></h1>
 
-<p>
-  <b>Description:</b>
-  <%= @show.description %>
-</p>
+	<div id="coverimg">
+		<img src="/images/artwork/full/<%= @show.shows_users.first.show_artwork.path %>" height="150" style="padding: 0"/>
+	</div>
 
-<p>
-  <b>Location:</b>
-  <%= @show.location %>
-</p>
+	<h2 id="showtitle">
+	  <%= @show.title %>
+	</h2>
 
+	<p class="showinfo">
+		<b>Airs </b>
+		<%= @show.status == 'Continuing' ? "#{@show.air_day} #{@show.air_time}" : @show.status %>
+	</p>
+
+	<p class="showinfo">
+		<b>Network </b>
+		<%= @show.network %>
+	</p>
+
+	<p class="showinfo">
+		<b>Rating </b>
+		<%= @show.rating %>
+	</p>
+
+	<p class="showinfo">
+		<b>Episodes </b>
+		<%= @show.episodes.count() %>
+	</p>
+
+</div>
+
+<div class="box">
+	<a name="EpisodeList"></a>				
+	<h1><a href="#EpisodeList">Episode <span class="white">List</span></a></h1>
+	<table id="episodetable" width="96%" cellpadding="0" cellspacing="0">
+		<tr>
+			<th>Episode</th>
+			<th>Air Date</th>
+			<th>Title</th>
+		</tr>
+	<% seasontitle = nil
+	seps = nil
+	@show.get_nice_episode_list.reverse().each() do |seasoneps| %>
+		<% seasoneps.select { |title, eplist|
+			seasontitle = title
+			seps = eplist 
+		} %>
+		<tr>
+			<td class="seasoncell" colspan="4">
+				<h1 class="seasontitle"><%= seasontitle %></h1>
+			</td>
+		</tr>
+		<% seps.each do |ep| %>
+		<tr>
+			<td><%= ep.episode_no %></td>
+			<td><%= ep.first_aired %></td>
+			<td><%= ep.episode_name %></td>
+		</tr>
+		<% end %>
+	<% end %>
+</table>
+	
+</div>
 
 <%= link_to 'Edit', edit_show_path(@show) %> |
 <%= link_to 'Back', shows_path %>

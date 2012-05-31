@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Show:</b>
+  <%= @show_artwork.show_id %>
+</p>
+
+<p>
+  <b>Tvdb:</b>
+  <%= @show_artwork.tvdb_id %>
+</p>
+
+<p>
+  <b>Path:</b>
+  <%= @show_artwork.path %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @show_artwork.type %>
+</p>
+
+<p>
+  <b>Subtype:</b>
+  <%= @show_artwork.subtype %>
+</p>
+
+<p>
+  <b>Language:</b>
+  <%= @show_artwork.language %>
+</p>
+
+<p>
+  <b>Rating:</b>
+  <%= @show_artwork.rating %>
+</p>
+
+<p>
+  <b>Thumbnail:</b>
+  <%= @show_artwork.thumbnail %>
+</p>
+
+
+<%= link_to 'Edit', edit_show_artwork_path(@show_artwork) %> |
+<%= link_to 'Back', show_artworks_path %>

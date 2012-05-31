@@ -1,0 +1,47 @@
+<div class="box">
+  <div class="optionstab">
+    <%= link_to 'Episode List', show_path(@show) %>
+  </div>
+
+  <a name="ShowInfo"></a>
+  <h1><a href="#ShowInfo">Show <span class="white">Info</span></a></h1>
+
+  <div id="coverimg">
+    <img src="/images/artwork/full/<%= @show.shows_users.first.show_artwork.path %>" height="150" style="padding: 0"/>
+  </div>
+
+  <h2 id="showtitle">
+    <%= @show.title %>
+  </h2>
+
+  <p class="showinfo">
+    <b>Airs </b>
+    <%= @show.status == 'Continuing' ? "#{@show.air_day} #{@show.air_time}" : @show.status %>
+  </p>
+
+  <p class="showinfo">
+    <b>Network </b>
+    <%= @show.network %>
+  </p>
+
+  <p class="showinfo">
+    <b>Rating </b>
+    <%= @show.rating %>
+  </p>
+
+  <p class="showinfo">
+    <b>Episodes </b>
+    <%= @show.episodes.count() %>
+  </p>
+
+</div>
+
+<% @artwork.each do |type, imgs| %>
+    <div class="box">
+      <h1 class="arttype"><%= type %></h1>
+
+      <% imgs.each do |i| %>
+          <%= render 'shared/cover_image', :object => i, :show => @show %>
+      <% end %>
+    </div>
+<% end %>

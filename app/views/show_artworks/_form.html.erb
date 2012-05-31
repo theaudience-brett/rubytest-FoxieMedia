@@ -1,0 +1,49 @@
+<%= form_for(@show_artwork) do |f| %>
+  <% if @show_artwork.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@show_artwork.errors.count, "error") %> prohibited this show_artwork from being saved:</h2>
+
+      <ul>
+      <% @show_artwork.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :show_id %><br />
+    <%= f.number_field :show_id %>
+  </div>
+  <div class="field">
+    <%= f.label :tvdb_id %><br />
+    <%= f.number_field :tvdb_id %>
+  </div>
+  <div class="field">
+    <%= f.label :path %><br />
+    <%= f.text_field :path %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :subtype %><br />
+    <%= f.text_field :subtype %>
+  </div>
+  <div class="field">
+    <%= f.label :language %><br />
+    <%= f.text_field :language %>
+  </div>
+  <div class="field">
+    <%= f.label :rating %><br />
+    <%= f.text_field :rating %>
+  </div>
+  <div class="field">
+    <%= f.label :thumbnail %><br />
+    <%= f.text_field :thumbnail %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

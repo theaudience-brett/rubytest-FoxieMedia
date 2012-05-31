@@ -1,4 +1,23 @@
 Foxiemedia::Application.routes.draw do
+  get "sessions/new"
+
+  match "configs/update" => 'configs#update'
+  match "configs/:sect" => 'configs#index'
+  resources :configs
+
+  get "register" => 'users#register', :as => :register
+
+  post "register" => 'users#create'
+  resources :users
+
+  resources :sessions, :only => [:new, :create, :destroy]
+
+  match "login" => 'sessions#new', :as => :login
+
+  match "logout" => 'sessions#destroy', :as => :logout
+
+  resources :show_artworks
+
   resources :episodes
 
   get "shows/populate"
@@ -9,6 +28,11 @@ Foxiemedia::Application.routes.draw do
   match "shows/find/:name" => 'shows#find_results'
 
   match "shows/:id/populate" => 'shows#populate', :as => :populate
+
+  match "shows/:id/userconfig" => 'shows#userconfig', :as => :showconfig
+
+  match "shows/:id/cover/:show_artwork_id" => 'shows#setcover', :as => :setcover
+
   resources :shows
 
   root :to => 'shows#index', :as => 'shows'

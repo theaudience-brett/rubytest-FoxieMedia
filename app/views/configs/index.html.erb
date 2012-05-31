@@ -1,0 +1,15 @@
+<% if notice %>
+  <div class="box">
+    <a name="notice"></a>       
+    <h1><a href="#notice">Notice</a></h1>
+    <p id="notice"><%= notice %></p>
+  </div>
+<% end %>
+
+<div class="box">
+  <a name="configs"></a>       
+  <h1><a href="#configs">Configuration - <%= @sect %></a></h1>
+  <%= render 'form' %>
+</div>
+
+<br />
